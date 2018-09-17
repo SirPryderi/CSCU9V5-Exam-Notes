@@ -1,6 +1,6 @@
 # Concurrent and Distributed Systems
 
-## Processes
+## Processes and Thread Management
 A process the the representation of a **program** in execution (code + variables + CPU access).
 
 Running processes in parallel (**multitasking**) makes the resources more reusable (virtual memory, CPU cycles management).
@@ -13,5 +13,8 @@ Running processes in parallel (**multitasking**) makes the resources more reusab
 
 When the process finishes it asks the OS to free the allocated resources.
 
+## Concurrency
 
+
+## Distributed Systems
 
