@@ -79,6 +79,28 @@ Separate processes do not share the same address space, so they cannot share mem
 
 In order for processes to communicate they need to be synchronized in order to prevent data inconsistency (i.e. process A reading while process B is writing the same file). There is a whole set of Race Conditions that needs to be handled in order to prevent inconsistencies.
 
+### Threads
+
+Most operating systems allow a process to have multiple thread of execution. A thread is like a process, but shares memory space and resources with the other threads in the same process. This makes thread switching and thread scheduling less cost intensive than the process equivalents.
+
+Benefits of using threads are:
+
+- **Responsiveness** – an application continues running even if part of it is blocked or performing a lengthy operation.
+- **Resource sharing** – Threads share memory and resources of the process they belong to.
+- **Economy** – allocating memory and resources to processes is costly. Creating and switching between threads is more cost effective as the overhead is smaller.
+- **Utilisation** of multiprocessor architectures – each thread may run on a different processor. In a single processor environment, the context switching allows pseudo parallelism.
+
+Threads have states like processes.
+
+#### Multi-threading models
+Different operating systems provide different approach to multi-threading, and how each thread communicates with the kernel.
+
+Operating systems usually fall in one the three categories:
+
+- **Many-to-One** ─ All the user-level threads communicate with a single kernel-level thread. This causes each thread to be scheduled and does not support multiple cores.
+- **One-to-One** ─ A kernel-level thread is created for each user-level thread. This allows a better use of multiple cores, but has a greater overhead, as creating a new user-space thread will create also a new kernel-space thread.
+- **Many-to-Many** ─ The number of kernel threads depend on the machine, and each user-level thread is assigned to one of the existing kernel-threads. This has a lower overhead than the _one-to-one_ and supports multiple cores.
+
 ## Concurrency
 
 
